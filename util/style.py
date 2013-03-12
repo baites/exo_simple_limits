@@ -20,11 +20,10 @@ def canvas(cv):
     pad.SetLeftMargin(0.15)
 
 def combo(obj, xtitle="t#bar{t} Invariant Mass [GeV/c^{2}]",
-          ytitle="Upper Limit #sigma_{Z'} x B [pb]", maximum=1e1):
+          ytitle="Upper Limit #sigma_{Z'} x B [pb]", maximum=1e1, minimum=5e-3):
     '''Adjust TMultiGraph style'''
 
-    obj.SetMinimum(5e-3)
-    #obj.SetMinimum(1e-2)
+    obj.SetMinimum(minimum)
 
     if maximum:
         obj.SetMaximum(maximum)

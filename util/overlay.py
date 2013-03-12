@@ -34,7 +34,7 @@ def plot(limit_type, filename, logy=True, smooth_data=True):
 
     data = load_data(filename,0.1)
 
-    if smooth_data: smooth.data(data, n=40)
+    if smooth_data: smooth.data(data, n=40, log=logy)
 
     #print(sorted(data.keys()))
     #for m in sorted(data.keys()):
@@ -123,7 +123,9 @@ def plot(limit_type, filename, logy=True, smooth_data=True):
     if logy: cv.SetLogy(True)
 
     if limit_type == 'kk':
-        style.combo(combo, ytitle = 'Upper Limit #sigma_{g_{KK}} x B [pb]', maximum=1e2 if logy else None)
+        style.combo(combo, ytitle = 'Upper Limit #sigma_{g_{KK}} x B [pb]', 
+                    maximum=1e2 if logy else None,
+                    minimum=1e-2 if logy else None)
     else:
         style.combo(combo, maximum=1e2 if logy else None)
 
